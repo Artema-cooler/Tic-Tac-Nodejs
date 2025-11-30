@@ -22,7 +22,7 @@ function makeMove(cell) {
 
 socket.on("moveMade", data => {
     document.getElementById(data.position).innerHTML = 
-        (data.symbol == "X") ? "<span style=\"color:red;\">" : "<span style=\"color:blue;\">" + data.symbol + "</span>";
+        ((data.symbol == "X") ? "<span style=\"color:red;\">" : "<span style=\"color:blue;\">") + data.symbol + "</span>";
 
     isTurn = data.symbol !== symbol;
     if (!gameOver()) {
@@ -103,3 +103,4 @@ socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 
 });
+

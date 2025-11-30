@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic-Tac-JS</title>
+        <script src="socket.io/socket.io.js"></script>
+    </head>
+    <body>
+    <style>
+        #wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: auto;
+        }
+        .board {
+            margin: auto;
+            width: 490px;
+        }
+        .board button {
+            height: 150px;
+            width: 150px;
+            float: left;
+            margin: 5px;
+            font-size: 3em;
+        }
+        #message {
+            font-size: 3rem; margin-bottom: 1rem; text-align: center;
+            min-height: 70px;
+        }
+        #game {
+            height: 550px;
+        }
+
+        #chat {
+            width: 250px;
+            margin-left: 75px;
+            margin-top: 5px;
+        }
+        #chatHistory {
+            height: 525px;
+            max-width: 100%;
+
+            border: solid 2px black;
+
+            margin-bottom: 5px;
+
+            overflow-y: scroll;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+        #chatInput, #submit {
+            height: 20px;
+        }
+    </style>
+    <div id="wrapper">
+        <div id="game">
+            <div id="message">Waiting for an opponent...</div>
+            <div class="board">
+                <button id="r0c0"></button> <button id="r0c1"></button> <button id="r0c2"></button>
+
+                <button id="r1c0"></button> <button id="r1c1"></button> <button id="r1c2"></button>
+
+                <button id="r2c0"></button> <button id="r2c1"></button> <button id="r2c2"></button>
+            </div>
+        </div>
+        <div id="chat">
+            <div id="chatHistory">
+
+            </div>
+            <form action="" id="form">
+                <input type="text" name="" id="chatInput">
+                <input type="submit" value="Send" id="submit">
+            </form>
+        </div>
+    </div>
+
+    </body>
+    <script src="script.js"></script>
+</html>

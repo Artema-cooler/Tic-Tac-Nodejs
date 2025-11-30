@@ -56,7 +56,8 @@ function pushPlayerToQueue(socket) {
 
     if (unmatchedPlayerId) {
         players[unmatchedPlayerId].opponent = socket.id;
-        players[socket.id].symbol = "O";
+        players[unmatchedPlayerId].symbol = (Math.random() > 0.5) ? "X" : "O";
+        players[socket.id].symbol = (players[unmatchedPlayerId].symbol == "X") ? "O" : "X";
         unmatchedPlayerId = null;
     } else {
         unmatchedPlayerId = socket.id;

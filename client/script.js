@@ -70,7 +70,8 @@ function resolveTurns() {
 
 function gameOver() {
     let state = boardState();
-    let matches = ["OOO", "XXX"];
+    let matches = ["<span style=\"color:blue;\">O</span><span style=\"color:blue;\">O</span><span style=\"color:blue;\">O</span>",
+                   "<span style=\"color:blue;\">X</span><span style=\"color:blue;\">X</span><span style=\"color:blue;\">X</span>"];
     let rows = [
         state.r0c0 + state.r0c1 + state.r0c2, 
         state.r1c0 + state.r1c1 + state.r1c2,
@@ -103,4 +104,5 @@ socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 
 });
+
 

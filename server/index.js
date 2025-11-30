@@ -43,6 +43,7 @@ io.on("connection", (socket) => {
 
     socket.on("disconnect", () => {
         console.log("A player disconnected: " + socket.id);
+        if (unmatchedPlayerId == socket.id) unmatchedPlayerId = null;
         if (opponentOf(socket)) opponentOf(socket).emit("opponentLeft");
     });
 });

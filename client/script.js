@@ -21,8 +21,7 @@ function makeMove(cell) {
 }
 
 socket.on("moveMade", data => {
-    document.getElementById(data.position).innerHTML = 
-        ((data.symbol == "X") ? "<span style=\"color:red;\">" : "<span style=\"color:blue;\">") + data.symbol + "</span>";
+    document.getElementById(data.position).innerHTML = data.symbol;
 
     isTurn = data.symbol !== symbol;
     if (!gameOver()) {
@@ -70,8 +69,7 @@ function resolveTurns() {
 
 function gameOver() {
     let state = boardState();
-    let matches = ["<span style=\"color:blue;\">O</span><span style=\"color:blue;\">O</span><span style=\"color:blue;\">O</span>",
-                   "<span style=\"color:blue;\">X</span><span style=\"color:blue;\">X</span><span style=\"color:blue;\">X</span>"];
+    let matches = ["OOO", "XXX"];
     let rows = [
         state.r0c0 + state.r0c1 + state.r0c2, 
         state.r1c0 + state.r1c1 + state.r1c2,
@@ -104,5 +102,6 @@ socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 
 });
+
 
 

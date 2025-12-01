@@ -7,3 +7,6 @@ Features include:
 - And most importantly, an integrated chat to speak with your opponents!
 
 I may or may not add changes to this project, but i think it is complete.
+
+
+Big thank you for Sasha and Oleg, they are my classmates and they helped very much with playtesting! (They don't have their GitHub accounts yet but i'll name them here)

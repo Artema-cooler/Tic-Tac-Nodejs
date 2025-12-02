@@ -24,7 +24,7 @@ io.on("connection", (socket) => {
 
     playerCount++;
     pushPlayerToQueue(socket);
-    playingPlayersCount = Object.values(playes).length;
+    playingPlayersCount = Object.values(players).length;
 
     if (opponentOf(socket)) {
         socket.emit("gameBegin", {symbol: players[socket.id].symbol});

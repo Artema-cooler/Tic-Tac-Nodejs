@@ -42,7 +42,6 @@ io.on("connection", (socket) => {
 
     socket.on("disconnect", () => {
         console.log("A player disconnected: " + socket.id);
-        playerCount--;
         if (unmatchedPlayerId == socket.id) unmatchedPlayerId = null;
         delete players[socket.id];
         if (opponentOf(socket)) opponentOf(socket).emit("opponentLeft");

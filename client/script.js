@@ -14,7 +14,7 @@ const messageBox = document.getElementById("message");
 cells.forEach(cell => cell.addEventListener("click", () => makeMove(cell)));
 
 function makeMove(cell) {
-    if (!isTurn || cell.textContent) return;
+    if (!isTurn || cell.innerHTML.length > 0) return;
     socket.emit("makeMove", {
         position: cell.id, symbol
     });
@@ -102,6 +102,7 @@ form.addEventListener("submit", (e) => {
 socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 });
+
 
 
 

@@ -105,6 +105,7 @@ form.addEventListener("submit", (e) => {
 });
 
 socket.on("message", (msg) => {
-    chatHistory.textContent = chatHistory.textContent + msg + "<br>";
+    chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
     sfxChatMessageReceived.play();
 });
+

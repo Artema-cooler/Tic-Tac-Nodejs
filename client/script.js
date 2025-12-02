@@ -4,6 +4,10 @@ const socket = io.connect(url);
 let isTurn = true;
 let symbol;
 
+const sfxGameStart           = new Audio("/sounds/gameStart.ogg");
+const sfxMoveMade            = new Audio("/sounds/moveMadeClick.wav");
+const sfxChatMessageReceived = new Audio("/sounds/chatMessageBoing.wav");
+
 const chatHistory = document.getElementById("chatHistory");
 const chatInput = document.getElementById("chatInput");
 const form = document.getElementById("form");
@@ -14,7 +18,7 @@ const messageBox = document.getElementById("message");
 cells.forEach(cell => cell.addEventListener("click", () => makeMove(cell)));
 
 function makeMove(cell) {
-    if (!isTurn || cell.innerHTML.length > 0) return;
+    if (!isTurn || cell.textContent) return;
     socket.emit("makeMove", {
         position: cell.id, symbol
     });
@@ -22,6 +26,7 @@ function makeMove(cell) {
 
 socket.on("moveMade", data => {
     document.getElementById(data.position).innerHTML = data.symbol;
+    sfxMoveMade.play();
 
     isTurn = data.symbol !== symbol;
     if (!gameOver()) {
@@ -47,6 +52,7 @@ socket.on("gameBegin", data => {
     symbol = data.symbol;
     isTurn = symbol === "X";
     resolveTurns();
+    sfxGameStart.play();
 });
 
 socket.on("opponentLeft", data => {
@@ -99,9 +105,6 @@ form.addEventListener("submit", (e) => {
 });
 
 socket.on("message", (msg) => {
-    chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
-
+    chatHistory.textContent = chatHistory.textContent + msg + "<br>";
+    sfxChatMessageReceived.play();
 });
-
-
-

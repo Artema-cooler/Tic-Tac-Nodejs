@@ -12,11 +12,19 @@ app.use(express.static(__dirname + "/../client"));
 
 let players = {};
 let unmatchedPlayerId;
+let playerCount = 0;
+let playingPlayersCount = Object.values(playes).length;
 
 io.on("connection", (socket) => {
     console.log("A player connected: " + socket.id);
+    const playerCountUpdateLoop = setInterval(() => {
+        playingPlayersCount = Object.values(playes).length;
+        socket.send("<b>Server: </b>There are " + playerCount + " players online, of which " + playingPlayersCount + "are currently in matches.")
+    }, 2000)
 
+    playerCount++;
     pushPlayerToQueue(socket);
+    playingPlayersCount = Object.values(playes).length;
 
     if (opponentOf(socket)) {
         socket.emit("gameBegin", {symbol: players[socket.id].symbol});
@@ -42,7 +50,9 @@ io.on("connection", (socket) => {
 
     socket.on("disconnect", () => {
         console.log("A player disconnected: " + socket.id);
+        playerCount--;
         if (unmatchedPlayerId == socket.id) unmatchedPlayerId = null;
+        delete players[socket.id];
         if (opponentOf(socket)) opponentOf(socket).emit("opponentLeft");
     });
 });

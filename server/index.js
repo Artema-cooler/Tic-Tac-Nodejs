@@ -59,6 +59,7 @@ function pushPlayerToQueue(socket) {
         players[unmatchedPlayerId].opponent = socket.id;
         players[unmatchedPlayerId].symbol = (Math.random() > 0.5) ? "X" : "O";
         players[socket.id].symbol = (players[unmatchedPlayerId].symbol == "X") ? "O" : "X";
+        console.log("Match found: " + socket.id + " and " + umatchedPlayerId);
         unmatchedPlayerId = null;
     } else {
         unmatchedPlayerId = socket.id;

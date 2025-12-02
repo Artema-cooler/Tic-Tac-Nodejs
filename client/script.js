@@ -21,7 +21,7 @@ function makeMove(cell) {
 }
 
 socket.on("playerCountUpdate", (data) => {
-    messageBox.innerHTML = `Waiting for an opponent...<br><h5><i>${data.playersCount} | ${data.playingPlayersCount}</i></h5>`
+    messageBox.innerHTML = `Waiting for an opponent...<h6><i>${data.playersCount} | ${data.playingPlayersCount}</i></h6>`
 })
 
 socket.on("moveMade", data => {
@@ -105,6 +105,7 @@ form.addEventListener("submit", (e) => {
 socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 });
+
 
 
 

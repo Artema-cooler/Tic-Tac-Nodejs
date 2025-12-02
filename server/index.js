@@ -13,7 +13,7 @@ app.use(express.static(__dirname + "/../client"));
 let players = {};
 let unmatchedPlayerId;
 let playerCount = 0;
-let playingPlayersCount = Object.values(players.filter(player => player.opponent)).length;
+let playingPlayersCount = Object.values(players).filter(player => player.opponent).length;
 
 io.on("connection", (socket) => {
     console.log("A player connected: " + socket.id);
@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
 
     playerCount++;
     pushPlayerToQueue(socket);
-    playingPlayersCount = Object.values(players.filter(player => player.opponent)).length;
+    playingPlayersCount = Object.values(players).filter(player => player.opponent).length;
 
     if (opponentOf(socket)) {
         socket.emit("gameBegin", {symbol: players[socket.id].symbol});

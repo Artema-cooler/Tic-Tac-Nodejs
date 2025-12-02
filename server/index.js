@@ -13,12 +13,12 @@ app.use(express.static(__dirname + "/../client"));
 let players = {};
 let unmatchedPlayerId;
 let playerCount = 0;
-let playingPlayersCount = Object.values(playes).length;
+let playingPlayersCount = Object.values(players).length;
 
 io.on("connection", (socket) => {
     console.log("A player connected: " + socket.id);
     const playerCountUpdateLoop = setInterval(() => {
-        playingPlayersCount = Object.values(playes).length;
+        playingPlayersCount = Object.values(players).length;
         socket.send("<b>Server: </b>There are " + playerCount + " players online, of which " + playingPlayersCount + "are currently in matches.")
     }, 2000)
 

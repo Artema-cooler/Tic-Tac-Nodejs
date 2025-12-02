@@ -9,7 +9,7 @@ Features include:
 I may or may not add changes to this project, but i think it is complete.
 
 
-Big thank you for Sasha and Oleg, they are my classmates and they helped very much with playtesting! (They don't have their GitHub accounts yet but i'll name them here)
+Big thank you for Sasha, Platon and Oleg, they are my classmates and they helped very much with playtesting! (They don't have their GitHub accounts yet but i'll name them here)
 
 
 Timeline of updates:
@@ -20,3 +20,4 @@ Timeline of updates:
 5. Bugfix: fixed element width issues with additional CSS
 6. Added in sounds to the game
 7. Bugfix: fixed chat display issue
+8. Added in "players online" counter

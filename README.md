@@ -20,4 +20,3 @@ Timeline of updates:
 5. Bugfix: fixed element width issues with additional CSS
 6. Added in sounds to the game
 7. Bugfix: fixed chat display issue
-8. Added in "players online" counter

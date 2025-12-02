@@ -22,7 +22,6 @@ function makeMove(cell) {
 
 socket.on("moveMade", data => {
     document.getElementById(data.position).innerHTML = data.symbol;
-    sfxMoveMade.play();
 
     isTurn = data.symbol !== symbol;
     if (!gameOver()) {
@@ -102,3 +101,4 @@ form.addEventListener("submit", (e) => {
 socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 });
+

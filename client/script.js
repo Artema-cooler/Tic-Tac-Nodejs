@@ -20,10 +20,6 @@ function makeMove(cell) {
     });
 }
 
-socket.on("playerCountUpdate", (data) => {
-    messageBox.innerHTML = `Waiting for an opponent...<h6><i>${data.playerCount} | ${data.playingPlayersCount}</i></h6>`
-})
-
 socket.on("moveMade", data => {
     document.getElementById(data.position).innerHTML = data.symbol;
 
@@ -105,6 +101,7 @@ form.addEventListener("submit", (e) => {
 socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 });
+
 
 
 

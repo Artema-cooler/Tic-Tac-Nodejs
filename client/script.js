@@ -94,16 +94,10 @@ function boardState() {
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    socket.send(chatInput.value);
+    if (chatInput.value) socket.send(chatInput.value);
     chatInput.value = "";
 });
 
 socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
 });
-
-
-
-
-
-

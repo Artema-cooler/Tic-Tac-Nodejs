@@ -53,10 +53,10 @@ socket.on("gameDrawed", () => {
 
 socket.on("gameBegin", data => {
     cells.forEach(cell => cell.innerHTML = "");
+    sfxGameStart.play();
     symbol = data.symbol;
     isTurn = symbol === "X";
     resolveTurns();
-    sfxGameStart.play();
 });
 
 socket.on("opponentLeft", data => {
@@ -112,5 +112,6 @@ socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
     sfxChatMessageReceived.play();
 });
+
 
 

@@ -9,7 +9,7 @@ const sfxMoveMade            = new Audio("/sounds/moveMadeClick.wav");
 const sfxChatMessageReceived = new Audio("/sounds/chatMessageBoing.wav");
 
 sfxGameStart.volume = 0.5;
-sfxChatMessageReceived.volume = 0.4;
+sfxChatMessageReceived.volume = 0.2;
 sfxMoveMade.volume = 0.7;
 
 const chatHistory = document.getElementById("chatHistory");
@@ -112,6 +112,7 @@ socket.on("message", (msg) => {
     chatHistory.innerHTML = chatHistory.innerHTML + msg + "<br>";
     sfxChatMessageReceived.play();
 });
+
 
 
 
